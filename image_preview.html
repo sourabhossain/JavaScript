@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Preview</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: "Open Sans", sans-serif;
+            height: 100vh;
+            background: #1283da;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            height: inherit;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-input {
+            width: 350px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+                3px 3px 7px rgba(94, 104, 121, 0.377);
+        }
+
+        .form-input input {
+            display: none;
+        }
+
+        .form-input label {
+            display: block;
+            width: 45%;
+            height: 45px;
+            margin-left: 25%;
+            line-height: 50px;
+            text-align: center;
+            background: #1172c2;
+            text-transform: Uppercase;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-input img {
+            width: 100%;
+            display: none;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-input">
+            <div class="preview">
+                <img id="file-ip-1-preview">
+            </div>
+
+            <label for="file-ip-1">Upload Image</label>
+            <input type="file" id="file-ip-1" name="file-ip-1" accept="image/*" onchange="showPreview(event)">
+        </div>
+    </div>
+
+    <script>
+        const showPreview = (event) => {
+            const src = URL.createObjectURL(event.target?.files[0]);
+            const preview = document.querySelector("#file-ip-1-preview");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
