@@ -40,3 +40,5 @@ const randomHex = () => `#${Math.floor(Math.random() * 0xff_ff_ff).toString(16).
 // Log Time from Date
 const timeFromDate = date => date.toTimeString().slice(0, 8);
 
+// Shuffle an Array
+const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
