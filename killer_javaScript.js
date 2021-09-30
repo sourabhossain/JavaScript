@@ -36,3 +36,7 @@ const dayDifference = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - dat
 
 // Generate Random Hex
 const randomHex = () => `#${Math.floor(Math.random() * 0xff_ff_ff).toString(16).padEnd(6, "0")}`;
+
+// Log Time from Date
+const timeFromDate = date => date.toTimeString().slice(0, 8);
+
