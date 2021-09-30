@@ -21,3 +21,7 @@ const hexToRgb = (hex) => {
         b: parseInt(result[3], 16)
     } : null;
 };
+
+// Check if Date is Valid
+const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf());
+
