@@ -34,3 +34,5 @@ const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0
 // Find the number of days between two days
 const dayDifference = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86_400_000)
 
+// Generate Random Hex
+const randomHex = () => `#${Math.floor(Math.random() * 0xff_ff_ff).toString(16).padEnd(6, "0")}`;
