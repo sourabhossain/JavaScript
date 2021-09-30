@@ -9,6 +9,9 @@ const setCookie = (name, value, days) => {
     document.cookie = `${name}=${value}; ${expires}; path=/`;
 };
 
+// Clear All Cookies
+const clearCookies = document.cookie.split(';').forEach(cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`));
+
 // Convert RGB to Hex
 const rgbToHex = (r, g, b) => `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
 
