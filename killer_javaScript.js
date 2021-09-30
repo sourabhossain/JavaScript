@@ -25,3 +25,6 @@ const hexToRgb = (hex) => {
 // Check if Date is Valid
 const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf());
 
+// Find the day of year
+const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+
