@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search in Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="columns mx-1">
+        <div class="column is-half is-offset-one-quarter">
+            <section class="hero is-primary mb-4">
+                <div class="hero-body">
+                    <p class="title">SuperHero FAQ</p>
+                    <p class="subtitle">Frequently Asked Question about Superhero</p>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <label for="searchbox" class="is-size-5">Search</label>
+                    <input class='input mb-5' type="search" id="searchbox" placeholder="Live search keyword..">
+                </div>
+
+                <div class="box">
+                    <strong>What is Kryptonite?</strong>
+                    <p> It's Superman's weakness</p>
+                </div>
+
+                <div class="box">
+                    <strong> How did Spider-man get superpowers?</strong>
+                    <p> Spider-man was bitten by a radioactive spider on a lab. </p>
+                    <span class="is-hidden">secret</span>
+                </div>
+
+                <div class="box">
+                    <strong>Who were Batman's parents?</strong>
+                    <p> Thomas Wayne and Martha Wayne. </p>
+                </div>
+
+                <div class="box">
+                    <strong>Who is Malekith?</strong>
+                    <p>The villain of ‘Thor: The Dark World </p>
+                </div>
+
+                <div class="box">
+                    <strong>What's Wonder Woman's weapon?</strong>
+                    <p>A magic lasso and bullet-proof bracelets </p>
+                </div>
+
+                <div class="box">
+                    <strong>What's Strom super power?</strong>
+                    <p>She can manipulate and resist the weather</p>
+                </div>
+
+                <div class="box">
+                    <strong>What's Strom super power?</strong>
+                    <p>She can manipulate and resist the weather</p>
+                </div>
+
+                <div class="box">
+                    <strong>What is Eye of Agamotto?</strong>
+                    <p>It's a place where the Time Stone is hidden in Doctor Strange </p>
+                </div>
+
+                <div class="box">
+                    <strong>What is Paradise Island?</strong>
+                    <p>It's where Wonder Woman comes from. </p>
+                </div>
+
+                <div class="box">
+                    <strong>Who was the sidekick of Aquaman?</strong>
+                    <p>The sidekick of Aquaman, is someone called Aqualad. </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let cards = document.querySelectorAll('.box')
+
+        const liveSearch = () => {
+            let search_query = document.getElementById("searchbox").value;
+
+            for (let i = 0; i < cards.length; i++) {
+                if (cards[i].textContent.toLowerCase()
+                    .includes(search_query.toLowerCase())) {
+                    cards[i].classList.remove("is-hidden");
+                } else {
+                    cards[i].classList.add("is-hidden");
+                }
+            }
+        };
+
+        let typingTimer;
+        let typeInterval = 500;
+        let searchInput = document.getElementById('searchbox');
+
+        searchInput.addEventListener('keyup', () => {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(liveSearch, typeInterval);
+        });
+    </script>
+</body>
+
+</html>
